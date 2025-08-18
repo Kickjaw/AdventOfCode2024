@@ -1005,6 +1005,21 @@ transposed = Data.T
 
 sorted = np.sort(transposed, axis=1)
 total = 0
-for i in range(len(sorted[0])):
-    total += abs(sorted[0][i] - sorted[1][i])
+#for i in range(len(sorted[0])):
+#    total += abs(sorted[0][i] - sorted[1][i])
+#print(total)
+first = sorted[0]
+second = sorted[1]
+for i in range(len(first)):
+    if len(second) == 0:
+        break
+    while first[i] >= second[0]:
+        print(first[i], second[0])
+        if first[i] == second[0]:
+            total +=  first[i]
+            second = np.delete(second,0)
+        else:
+            second = np.delete(second,0)
+        if len(second) == 0 :
+            break
 print(total)
